@@ -1,0 +1,24 @@
+<mat-card>
+	<h1 mat-dialog-title>{{ data.isEdit ? 'Edit User' : 'Create User'}}</h1>
+	<form [formGroup]="userForm">
+		<label for="name">Name:
+			<input matInput type="text" placeholder="Name" id="name" formControlName="name">
+		</label>
+		<label for="email">E-mail:
+			<input matInput type="text" placeholder="E-mail" id="email" formControlName="email">
+		</label>
+		<label for="phone">Phone:
+			<input matInput type="text" placeholder="Phone" id="phone" formControlName="phone">
+		</label>
+		<label for="website">Website:
+			<input matInput type="text" placeholder="Website" id="website" formControlName="website">
+		</label>
+	</form>
+	<mat-dialog-actions>
+		<button mat-button mat-dialog-close (cancel)="dialogRef.close()">No</button>
+		<button mat-button mat-dialog-close color="primary" (click)="onClick(userForm.value)" cdkFocusInitial>{{
+			data.isEdit ? 'Save'
+			:
+			'Create'}}</button>
+	</mat-dialog-actions>
+</mat-card>
