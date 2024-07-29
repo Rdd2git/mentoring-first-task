@@ -1,13 +1,21 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router } from '@angular/router';
+import User from './types/user';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.sass'],
 })
 export class AppComponent {
-  title = 'mentoring-first-project';
+  user: User[] = [];
+  title = 'My First Project';
+  constructor(private router: Router) {}
+
+  async goToUsers() {
+    await this.router.navigate(['users']);
+  }
+  async goToHome() {
+    await this.router.navigate(['']);
+  }
 }
